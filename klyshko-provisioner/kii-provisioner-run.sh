@@ -33,4 +33,4 @@ cat <<EOF > cs-config
 }
 EOF
 
-java -jar cs.jar --config-file cs-config castor upload-tuple -f "${KII_TUPLE_FILE}" -t "${KII_TUPLE_TYPE}" -i "${KII_JOB_ID}" 1
+java -jar cs.jar --config-file cs-config castor upload-tuple -f "${KII_TUPLE_FILE}" -t "${KII_TUPLE_TYPE}" -m "${KII_TUPLE_FAMILY}" -i "${KII_JOB_ID}" 1

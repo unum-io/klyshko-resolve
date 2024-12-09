@@ -58,6 +58,13 @@ spec:
                       type: integer
                     type:
                       enum:
+                      - EDABIT_GFP_32
+                      - EDABIT_GFP_40
+                      - EDABIT_GFP_41
+                      - EDABIT_GFP_64
+                      - BINARY_TRIPLE_GFP
+                      - DABIT_GFP
+                      - DABIT_GF2N
                       - BIT_GFP
                       - BIT_GF2N
                       - INPUT_MASK_GFP

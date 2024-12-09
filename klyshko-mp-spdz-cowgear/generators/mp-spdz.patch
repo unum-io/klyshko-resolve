@@ -1,0 +1,38 @@
+diff --git a/Protocols/ProtocolSet.h b/Protocols/ProtocolSet.h
+index 09be88cb..821177c0 100644
+--- a/Protocols/ProtocolSet.h
++++ b/Protocols/ProtocolSet.h
+@@ -60,10 +60,10 @@ template<class T>
+ class BinaryProtocolSet
+ {
+     DataPositions usage;
+-    typename T::LivePrep prep;
+-    GC::ShareThread<T> thread;
+
+ public:
++    typename T::LivePrep prep;
++    GC::ShareThread<T> thread;
+     typename T::MAC_Check& output;
+     typename T::Protocol& protocol;
+     typename T::Input input;
+diff --git a/Protocols/ProtocolSetup.h b/Protocols/ProtocolSetup.h
+index 63c47172..86ccbc1b 100644
+--- a/Protocols/ProtocolSetup.h
++++ b/Protocols/ProtocolSetup.h
+@@ -126,6 +126,16 @@ public:
+             ProtocolSetup<T>(P, prime_length, directory), binary(P, directory)
+     {
+     }
++
++    /**
++     * @param prime modulus for computation
++     * @param P communication instance (used for MAC generation if needed)
++     * @param directory location to read MAC if needed
++     */
++    MixedProtocolSetup(bigint prime, Player& P, string directory = "") :
++            ProtocolSetup<T>(prime, P, directory), binary(P, directory)
++    {
++    }
+ };
+
+ #endif /* PROTOCOLS_PROTOCOLSETUP_H_ */

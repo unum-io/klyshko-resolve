@@ -65,10 +65,22 @@ spec:
               id:
                 description: ID is the unique identifier of this job.
                 type: string
+              family:
+                enum:
+                - CowGear
+                - Hemi
+                type: string
               type:
                 description: Type specifies the type of the tuples to be generated
                   by this job.
                 enum:
+                - EDABIT_GFP_32
+                - EDABIT_GFP_40
+                - EDABIT_GFP_41
+                - EDABIT_GFP_64
+                - BINARY_TRIPLE_GFP
+                - DABIT_GFP
+                - DABIT_GF2N
                 - BIT_GFP
                 - BIT_GF2N
                 - INPUT_MASK_GFP
@@ -85,6 +97,7 @@ spec:
             - generatorRef
             - id
             - type
+            - family
             type: object
           status:
             description: TupleGenerationJobStatus defines the observed state of a

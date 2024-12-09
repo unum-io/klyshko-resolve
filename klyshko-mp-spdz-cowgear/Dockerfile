@@ -23,12 +23,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN pip install --upgrade pip==23.1.2 ipython==8.14.0
 
 COPY MP-SPDZ /MP-SPDZ
-COPY cowgear-offline.cpp /MP-SPDZ/Utils/cowgear-offline.cpp
+COPY generators/klyshko-cowgear-offline.cpp /MP-SPDZ/Utils/klyshko-cowgear-offline.cpp
+COPY generators/klyshko-hemi-offline.cpp /MP-SPDZ/Utils/klyshko-hemi-offline.cpp
 COPY CONFIG.mine /MP-SPDZ/CONFIG.mine
 WORKDIR /MP-SPDZ
 
 RUN make clean
 RUN make -j boost
+RUN make -j klyshko-hemi-offline.x
 RUN make -j cowgear-offline.x
 
 FROM ghcr.io/carbynestack/ubuntu:20.04-20210827-nonroot
@@ -53,6 +55,7 @@ COPY --from=buildenv \
     /usr/lib/x86_64-linux-gnu/
 COPY --from=buildenv /usr/lib/x86_64-linux-gnu/libgf2x.so.3.0.0 /usr/lib/x86_64-linux-gnu/libgf2x.so.3
 COPY --from=buildenv /MP-SPDZ/cowgear-offline.x /usr/local/bin/
+COPY --from=buildenv /MP-SPDZ/klyshko-hemi-offline.x /usr/local/bin/
 
 # Copy KII resources
 COPY 3RD-PARTY-LICENSES /3RD-PARTY-LICENSES

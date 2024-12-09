@@ -443,6 +443,10 @@ func (r *TupleGenerationTaskReconciler) createProvisionerPod(ctx context.Context
 						Value: job.Spec.Type,
 					},
 					{
+						Name:  "KII_TUPLE_FAMILY",
+						Value: job.Spec.Family,
+					},
+					{
 						Name:  "KII_TUPLE_FILE",
 						Value: "/kii/tuples",
 					},
@@ -579,6 +583,10 @@ func (r *TupleGenerationTaskReconciler) createGeneratorPod(ctx context.Context, 
 							{
 								Name:  "KII_TUPLE_TYPE",
 								Value: job.Spec.Type,
+							},
+							{
+								Name:  "KII_TUPLE_FAMILY",
+								Value: job.Spec.Family,
 							},
 							{
 								Name:  "KII_TUPLES_PER_JOB",
