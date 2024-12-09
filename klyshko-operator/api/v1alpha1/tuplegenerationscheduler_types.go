@@ -15,7 +15,7 @@ import (
 type TupleTypePolicy struct {
 
 	//+kubebuilder:validation:Required
-	//+kubebuilder:validation:Enum=BIT_GFP;BIT_GF2N;INPUT_MASK_GFP;INPUT_MASK_GF2N;INVERSE_TUPLE_GFP;INVERSE_TUPLE_GF2N;SQUARE_TUPLE_GFP;SQUARE_TUPLE_GF2N;MULTIPLICATION_TRIPLE_GFP;MULTIPLICATION_TRIPLE_GF2N
+	//+kubebuilder:validation:Enum=EDABIT_GFP_32;EDABIT_GFP_40;EDABIT_GFP_41;EDABIT_GFP_64;BINARY_TRIPLE_GFP;DABIT_GFP;DABIT_GF2N;BIT_GFP;BIT_GF2N;INPUT_MASK_GFP;INPUT_MASK_GF2N;INVERSE_TUPLE_GFP;INVERSE_TUPLE_GF2N;SQUARE_TUPLE_GFP;SQUARE_TUPLE_GF2N;MULTIPLICATION_TRIPLE_GFP;MULTIPLICATION_TRIPLE_GF2N
 	Type string `json:"type"`
 
 	//+kubebuilder:validation:Required
@@ -36,6 +36,9 @@ type TupleGenerationSchedulerSpec struct {
 	//+kubebuilder:validation:Minimum=0
 	//+kubebuilder:validation:ExclusiveMinimum=false
 	Concurrency int `json:"concurrency,omitempty"`
+
+	//+kubebuilder:default=1
+	Family string `json:"family,omitempty"`
 
 	//+kubebuilder:default=600
 	//+kubebuilder:validation:Minimum=0

@@ -68,6 +68,7 @@ type TupleMetrics struct {
 	Available       int    `json:"available"`
 	ConsumptionRate int    `json:"consumptionRate"`
 	TupleType       string `json:"type"`
+	TupleFamily     string `json:"family"`
 }
 
 // Telemetry stores a TupleMetrics object per tuple type.

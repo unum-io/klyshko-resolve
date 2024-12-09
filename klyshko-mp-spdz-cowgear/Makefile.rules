@@ -8,3 +8,5 @@
 # Klyshko Cowgear CRG related rules
 cowgear-offline.x: Utils/cowgear-offline.cpp $(BOOST) $(VM) $(FHEOFFLINE) $(TINIER)
 	$(CXX) -o $@ $(CFLAGS) $^ $(LDLIBS)
+klyshko-hemi-offline.x: Utils/klyshko-hemi-offline.cpp $(BOOST) $(VM) $(FHEOFFLINE) $(GC_SEMI) $(OT)
+	$(CXX) -o $@ $(CFLAGS) $^ $(LDLIBS)

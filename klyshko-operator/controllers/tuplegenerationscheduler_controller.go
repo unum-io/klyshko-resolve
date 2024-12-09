@@ -193,6 +193,7 @@ func (r *TupleGenerationSchedulerReconciler) createJob(ctx context.Context, sche
 			Type:      tupleType,
 			Count:     tupleTypeSpec.BatchSize,
 			Generator: generator.Name,
+			Family:    scheduler.Spec.Family,
 		},
 		Status: klyshkov1alpha1.TupleGenerationJobStatus{
 			State:                   klyshkov1alpha1.JobPending,
